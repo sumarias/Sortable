@@ -65,18 +65,18 @@ def program():
     Matched_Listings=[] #this is never used its just a new list of matching listings objects grouped together
     x = 0
     while x < len(Products):
-        Matching_listings = []
+        Matching_listings = [] 
         z = 0
         y = 0
         while z < len(Listings_Titles):
             if Products[x][0:-1] == Listings_Titles[z][0:len(Products[x])-1]:
-                Matching_listings.append(str(listings_array[z]))
+                Matching_listings.append((listings_array[z]))
                 z += 1
                 y += 1
             else:
                 z += 1
         Matched_Listings.append(Matching_listings)
-        Results.append('{"' + 'product_name' + '"' + ':' + '"' + Products[x].replace(" ", '_') + '","listings":' + str(Matching_listings).replace("'", '') + "}")
+        Results.append('{"' + 'product_name' + '"' + ':' + '"' + Products[x] + '","listings":' + str(Matching_listings).replace("'", '') + "}")
         x += 1
 
     z = 0
